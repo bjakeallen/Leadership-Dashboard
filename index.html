@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Product Management Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-left">
+            <div class="nav-brand">
+                <div class="nav-logo-mark">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="10" cy="10" r="8" stroke="white" stroke-width="2"/>
+                        <circle cx="10" cy="10" r="3" fill="white"/>
+                        <line x1="10" y1="2" x2="10" y2="5" stroke="white" stroke-width="1.5"/>
+                        <line x1="10" y1="15" x2="10" y2="18" stroke="white" stroke-width="1.5"/>
+                        <line x1="2" y1="10" x2="5" y2="10" stroke="white" stroke-width="1.5"/>
+                        <line x1="15" y1="10" x2="18" y2="10" stroke="white" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <div class="nav-brand-text">
+                    <span class="nav-brand-title">Product Management</span>
+                    <span class="nav-brand-sub">Executive Dashboard</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" data-page="leadership-summary" class="nav-link active">Leadership Summary</a></li>
+                <li><a href="#" data-page="scorecard" class="nav-link">PM Scorecard</a></li>
+                <li><a href="#" data-page="health" class="nav-link">Product Health</a></li>
+                <li><a href="#" data-page="outcomes" class="nav-link">Outcomes</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="nav-role-wrapper">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="opacity:0.6">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2 2H6a4 4 0 0 0-4 4v1h12v-1a4 4 0 0 0-4-4z"/>
+                </svg>
+                <select id="role-select">
+                    <option value="executive">Executive</option>
+                    <option value="senior-leader">Senior Leader</option>
+                    <option value="product-director">Product Director</option>
+                    <option value="product-owner">Product Owner</option>
+                    <option value="admin">Administrator</option>
+                </select>
+            </div>
+            <!-- Settings Button -->
+            <div class="settings-wrapper">
+                <button class="settings-btn" id="settings-btn" aria-label="Settings">
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <!-- Settings Dropdown -->
+                <div class="settings-dropdown" id="settings-dropdown">
+                    <div class="settings-header">Settings</div>
+                    <div class="settings-item">
+                        <span class="settings-item-label">
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                            </svg>
+                            Dark Mode
+                        </span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="dark-mode-toggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-divider"></div>
+                    <div class="settings-item settings-item-static">
+                        <span class="settings-item-label">
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                            </svg>
+                            Version
+                        </span>
+                        <span class="settings-item-value">v1.0.0</span>
+                    </div>
+                    <div class="settings-item settings-item-static">
+                        <span class="settings-item-label">
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                            </svg>
+                            Data as of
+                        </span>
+                        <span class="settings-item-value">Sep 11, 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Filter Bar with BU Buttons -->
+    <div class="filters-bar">
+        <div class="filter-section-bu">
+            <span class="filter-section-label">Business Unit</span>
+            <div class="bu-filter-buttons" id="bu-filter-buttons">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+        <div class="filter-divider"></div>
+        <div class="filter-group">
+            <label for="filter-product-line">Product Line</label>
+            <select id="filter-product-line">
+                <option value="all">All Product Lines</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filter-product-owner">Product Owner</label>
+            <select id="filter-product-owner">
+                <option value="all">All Product Owners</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filter-time-period">Time Period</label>
+            <select id="filter-time-period">
+                <option value="q1-2026">Q1 2026</option>
+                <option value="q2-2026">Q2 2026</option>
+                <option value="q3-2026">Q3 2026</option>
+                <option value="q4-2026" selected>Q4 2026</option>
+            </select>
+        </div>
+        <button class="btn-reset" id="reset-filters">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+            </svg>
+            Reset
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Leadership Summary Page -->
+        <section id="leadership-summary" class="page active">
+            <div class="page-header">
+                <div>
+                    <h1>Leadership Summary</h1>
+                    <p class="page-subtitle" id="page-subtitle">Enterprise-wide Product Management overview — All Business Units</p>
+                </div>
+                <div class="page-header-meta">
+                    <span class="last-updated">Last updated: Sep 11, 2026</span>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card kpi-practice">
+                    <div class="kpi-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="kpi-body">
+                        <div class="kpi-label">PM Practice Score</div>
+                        <div class="kpi-value" id="kpi-practice">—</div>
+                        <div class="kpi-trend" id="kpi-practice-trend"></div>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-health">
+                    <div class="kpi-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="kpi-body">
+                        <div class="kpi-label">Product Health Coverage</div>
+                        <div class="kpi-value" id="kpi-health">—</div>
+                        <div class="kpi-trend" id="kpi-health-trend"></div>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-alignment">
+                    <div class="kpi-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1z"/>
+                        </svg>
+                    </div>
+                    <div class="kpi-body">
+                        <div class="kpi-label">OKR Alignment</div>
+                        <div class="kpi-value" id="kpi-alignment">—</div>
+                        <div class="kpi-trend" id="kpi-alignment-trend"></div>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-measurement">
+                    <div class="kpi-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="kpi-body">
+                        <div class="kpi-label">Outcome Measurement</div>
+                        <div class="kpi-value" id="kpi-measurement">—</div>
+                        <div class="kpi-trend" id="kpi-measurement-trend"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-card-header">
+                    <h2>Business Unit OKRs</h2>
+                    <span class="okr-count-badge" id="okr-count-badge">0 OKRs</span>
+                </div>
+                <div class="bu-okrs-table-container">
+                    <table class="bu-okrs-table">
+                        <thead>
+                            <tr>
+                                <th class="col-title">Title</th>
+                                <th class="col-owner">Owner</th>
+                                <th class="col-team">Team</th>
+                                <th class="col-status">Status &amp; Progress</th>
+                                <th class="col-note">Last Check-in Note</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bu-okrs-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-card-header">
+                    <h2>Executive Attention Required</h2>
+                    <span class="attention-count-badge" id="attention-count-badge">0 items</span>
+                </div>
+                <div class="attention-list" id="attention-list"></div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-card-header">
+                    <h2>Maturity Trends</h2>
+                    <span class="trend-legend">
+                        <span class="legend-item"><span class="legend-dot" style="background:#002855"></span>PM Practice</span>
+                    </span>
+                </div>
+                <div class="trend-chart">
+                    <canvas id="trend-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Management Scorecard Page -->
+        <section id="scorecard" class="page">
+            <div class="page-header">
+                <div>
+                    <h1>Product Management Scorecard</h1>
+                    <p class="page-subtitle">Assess PM practice consistency across all product lines</p>
+                </div>
+                <div class="scorecard-controls">
+                    <select id="scorecard-sort">
+                        <option value="score-desc">Score: High → Low</option>
+                        <option value="score-asc">Score: Low → High</option>
+                        <option value="business-unit">By Business Unit</option>
+                        <option value="product-owner">By Product Owner</option>
+                    </select>
+                </div>
+            </div>
+            <div class="scorecard-table-container">
+                <table class="scorecard-table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Business Unit / Product Line</th>
+                            <th>Roadmap</th>
+                            <th>Problem Briefs</th>
+                            <th>Measurement Plans</th>
+                            <th>Epic Mgmt</th>
+                            <th>Story Mgmt</th>
+                            <th>Avg Score</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="scorecard-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Product Health Dashboard Page -->
+        <section id="health" class="page">
+            <div class="page-header">
+                <div>
+                    <h1>Product Health Dashboard</h1>
+                    <p class="page-subtitle">Monitor health metrics across all product lines</p>
+                </div>
+            </div>
+            <div class="health-summary" id="health-summary"></div>
+            <div class="section-card" style="padding:0;overflow:hidden;">
+                <div class="health-metrics" id="health-metrics"></div>
+            </div>
+        </section>
+
+        <!-- Product Outcomes Dashboard Page -->
+        <section id="outcomes" class="page">
+            <div class="page-header">
+                <div>
+                    <h1>Product Outcomes Dashboard</h1>
+                    <p class="page-subtitle">Track strategic epic delivery and outcome measurement</p>
+                </div>
+            </div>
+            <div class="outcome-kpis">
+                <div class="outcome-kpi">
+                    <div class="kpi-label">Aligned to OKRs</div>
+                    <div class="kpi-value" id="outcome-kpi-aligned">—</div>
+                </div>
+                <div class="outcome-kpi">
+                    <div class="kpi-label">Epics Released</div>
+                    <div class="kpi-value" id="outcome-kpi-released">—</div>
+                </div>
+                <div class="outcome-kpi">
+                    <div class="kpi-label">With Measurement Plans</div>
+                    <div class="kpi-value" id="outcome-kpi-measured">—</div>
+                </div>
+                <div class="outcome-kpi">
+                    <div class="kpi-label">Outcomes Achieved</div>
+                    <div class="kpi-value" id="outcome-kpi-achieved">—</div>
+                </div>
+            </div>
+            <div class="outcomes-table-container">
+                <table class="outcomes-table">
+                    <thead>
+                        <tr>
+                            <th>Business Unit</th>
+                            <th>Product Line</th>
+                            <th>OKR</th>
+                            <th>Epic</th>
+                            <th>Story Completion</th>
+                            <th>Release Status</th>
+                            <th>Outcome Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="outcomes-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Drill-down -->
+    <div class="modal" id="detail-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="close-modal" aria-label="Close">&times;</button>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="js/data/models.js?v=22"></script>
+    <script src="js/data/mockData.js?v=22"></script>
+    <script src="js/app.js?v=22"></script>
+</body>
+</html>
